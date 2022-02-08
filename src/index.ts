@@ -1,18 +1,11 @@
+import axios from 'axios';
 import { User } from './models/User';
 
-const user = new User({
-  name: 'myname',
-  age: 20,
-});
+// axios.post('http://localhost:3000/users', {
+//   name: 'myname',
+//   age: 20,
+// });
 
-user.on('change', () => {
-  console.log('change #1');
-});
-user.on('change', () => {
-  console.log('change #2');
-});
-user.on('create', () => {
-  console.log('create');
-});
+const user = new User({ name: 'new user', age: 30 });
 
-user.trigger('change');
+user.save();
